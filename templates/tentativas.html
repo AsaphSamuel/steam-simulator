@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Tentativas de Login</title>
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/6463/6463383.png">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f3f3f3;
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        table {
+            width: 70%;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #4a76a8;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+        }
+
+        td {
+            padding: 12px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background: #f2f7ff;
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Tentativas de Login</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Usuário</th>
+            <th>Senha</th>
+        </tr>
+    </thead>
+
+    <tbody id="tabela-dados">
+        <!-- JavaScript irá preencher -->
+    </tbody>
+</table>
+
+<script>
+async function carregarTabela() {
+    const resposta = await fetch("/api/tentativas");
+    const dados = await resposta.json();
+
+    const tabela = document.getElementById("tabela-dados");
+    tabela.innerHTML = "";
+
+    dados.forEach(item => {
+        tabela.innerHTML += `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.usuario}</td>
+                <td>${item.senha}</td>
+            </tr>
+        `;
+    });
+}
+
+carregarTabela();
+</script>
+
+</body>
+</html>

